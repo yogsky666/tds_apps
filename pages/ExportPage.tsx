@@ -90,7 +90,6 @@ const ExportPage: React.FC = () => {
     const pelanggaranKelasRef = useRef<HTMLDivElement>(null);
 
     const memoizedData = useMemo(() => {
-        // ... (data processing logic copied from DashboardPage)
         const userMap = new Map(users.map(u => [u.username, u]));
         const sanksiMap = new Map(sanksi.map(s => [s.id, s]));
         const introspeksiMap = new Map(introspeksi.map(i => [i.id, i]));
@@ -110,12 +109,12 @@ const ExportPage: React.FC = () => {
                 monthlyPoints.set(p.nipd, current);
             }
         });
-        bimbinganBulanIni.forEach(p => { // Fix: variable name should be 'b'
-            const i = introspeksiMap.get(p.id_perbaikan); // Fix: variable name should be 'b'
+        bimbinganBulanIni.forEach(b => {
+            const i = introspeksiMap.get(b.id_perbaikan);
             if(i) {
-                const current = monthlyPoints.get(p.nipd) || { pelanggaran: 0, perbaikan: 0 }; // Fix: variable name should be 'b'
+                const current = monthlyPoints.get(b.nipd) || { pelanggaran: 0, perbaikan: 0 };
                 current.perbaikan += i.point_perbaikan;
-                monthlyPoints.set(p.nipd, current); // Fix: variable name should be 'b'
+                monthlyPoints.set(b.nipd, current);
             }
         });
 
