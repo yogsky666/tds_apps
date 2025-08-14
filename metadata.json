@@ -1,0 +1,6 @@
+{
+  "name": "Aplikasi Kedisiplinan Siswa",
+  "description": "An application for managing student discipline, featuring user authentication, role-based access, and a central dashboard.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
